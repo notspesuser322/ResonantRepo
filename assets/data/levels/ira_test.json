@@ -1,0 +1,29 @@
+{
+  "zone": "ira",
+  "title": "RESONANTE — Zona de Ira",
+  "subtitle": "Prototipo Fase 1 · plataformas de beat (rojas), de silencio (azules) y resonantes (ámbar)",
+  "music": "res://assets/audio/zones/ira_placeholder.wav",
+  "player_start": [70, 500],
+  "platforms": [
+    { "type": "ground", "pos": [900, 600], "size": [2400, 40] },
+    { "type": "ground", "pos": [-300, 200], "size": [40, 800] },
+    { "type": "ground", "pos": [2100, 200], "size": [40, 800] },
+    { "type": "beat", "pos": [380, 505], "size": [120, 16] },
+    { "type": "beat", "pos": [560, 430], "size": [120, 16] },
+    { "type": "resonant", "pos": [740, 360], "size": [130, 16] },
+    { "type": "silence", "pos": [980, 470], "size": [120, 16] },
+    { "type": "silence", "pos": [1160, 385], "size": [120, 16] },
+    { "type": "silence", "pos": [1350, 305], "size": [130, 16] },
+    { "type": "ground", "pos": [1560, 245], "size": [140, 16] }
+  ],
+  "fragments": [
+    {
+      "pos": [740, 305],
+      "text": "«Gritaste para no escucharte. El eco todavía te busca.»"
+    },
+    {
+      "pos": [1560, 190],
+      "text": "«En el silencio también estás. Sobre todo en el silencio.»"
+    }
+  ]
+}
