@@ -1,0 +1,29 @@
+; Engine configuration file.
+; Resonante — prototipo Fase 1 (Godot 4.3+)
+
+config_version=5
+
+[application]
+
+config/name="Resonante"
+config/description="Plataformas rítmico-emocional. Cada zona es una emoción, cada plataforma es música."
+run/main_scene="res://scenes/test_zone_ira.tscn"
+config/features=PackedStringArray("4.3")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://src/audio/audio_manager.gd"
+GameState="*res://src/core/game_state.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

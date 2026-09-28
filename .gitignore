@@ -1,0 +1,7 @@
+# Godot 4
+.godot/
+*.tmp
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

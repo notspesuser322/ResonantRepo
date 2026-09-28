@@ -1,0 +1,38 @@
+name: Smoke test (Godot headless)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descargar Godot 4.3
+        run: |
+          curl -L -o godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          unzip -q godot.zip
+          mv Godot_v4.3-stable_linux.x86_64 godot
+          chmod +x godot
+
+      - name: Importar proyecto (detecta errores de sintaxis)
+        run: |
+          ./godot --headless --path . --import > import.log 2>&1 || true
+          cat import.log
+          if grep -E "SCRIPT ERROR|Parse Error" import.log; then
+            echo "::error::Errores de sintaxis en scripts"
+            exit 1
+          fi
+
+      - name: Ejecutar escena principal 12 s (detecta errores en runtime)
+        run: |
+          timeout --signal=TERM 12 ./godot --headless --path . > run.log 2>&1 || true
+          cat run.log
+          if grep -E "SCRIPT ERROR|ERROR:" run.log; then
+            echo "::error::Errores en runtime"
+            exit 1
+          fi
+          echo "Smoke test OK: el proyecto corre sin errores."
