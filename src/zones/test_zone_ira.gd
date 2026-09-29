@@ -53,11 +53,10 @@ func _build_background() -> void:
 
 func _build_level(level: Dictionary) -> void:
 	for platform_data in level.get("platforms", []):
-		var platform := StaticBody2D.new()
-		platform.set_script(BeatPlatformScript)
+		var platform := BeatPlatform.new()
 		var type_name := String(platform_data.get("type", "beat")).to_upper()
-		platform.platform_type = BeatPlatformScript.PlatformType.get(
-			type_name, BeatPlatformScript.PlatformType.BEAT)
+		platform.platform_type = BeatPlatform.PlatformType.get(
+			type_name, BeatPlatform.PlatformType.BEAT)
 		var size_data: Array = platform_data.get("size", [120, 16])
 		platform.size = Vector2(size_data[0], size_data[1])
 		var position_data: Array = platform_data.get("pos", [0, 0])
@@ -65,14 +64,12 @@ func _build_level(level: Dictionary) -> void:
 		add_child(platform)
 
 	var start: Array = level.get("player_start", [70, 500])
-	var player := CharacterBody2D.new()
-	player.set_script(PlayerScript)
+	var player := ResonaPlayer.new()
 	player.position = Vector2(start[0], start[1])
 	add_child(player)
 
 	for fragment_data in level.get("fragments", []):
-		var fragment := Area2D.new()
-		fragment.set_script(FragmentScript)
+		var fragment := SoulFragment.new()
 		fragment.fragment_text = String(fragment_data.get("text", ""))
 		var fragment_position: Array = fragment_data.get("pos", [0, 0])
 		fragment.position = Vector2(fragment_position[0], fragment_position[1])
