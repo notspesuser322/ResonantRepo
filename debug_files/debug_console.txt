@@ -1,0 +1,19 @@
+W 0:00:00:627   GDScript::reload: The signal "fragment_collected" is declared but never explicitly used in the class.
+  <Error GDScript>UNUSED_SIGNAL
+  <GDScript Fuente>game_state.gd:8 @ GDScript::reload()
+
+
+E 0:00:00:714   player.gd:54 @ _build_body(): Condition "!enabled || !is_inside_tree()" is true.
+  <C++ Fuente>  scene/2d/camera_2d.cpp:588 @ make_current()
+  <Rastreo de Pila>player.gd:54 @ _build_body()
+                player.gd:30 @ _ready()
+                test_zone_ira.gd:69 @ _build_level()
+                test_zone_ira.gd:24 @ _ready()
+
+
+E 0:01:51:943   player.gd:54 @ _build_body(): Condition "!enabled || !is_inside_tree()" is true.
+  <C++ Fuente>  scene/2d/camera_2d.cpp:588 @ make_current()
+  <Rastreo de Pila>player.gd:54 @ _build_body()
+                player.gd:30 @ _ready()
+                test_zone_ira.gd:69 @ _build_level()
+                test_zone_ira.gd:24 @ _ready()
